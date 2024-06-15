@@ -41,3 +41,26 @@ FIVE MAIN PROPERTIES
 1. A block, transaction hashes are mixed together and produce new hashes that are nearly impossible to predict and continuously keep a copy with each and every peer to keep atleast 5 or more nodes connected.
 
 2. Changing a blocks information changes all other blocks too.
+
+### Update / Delete Transactions
+
+1. Gas Price Auction : The higher the gas price, the more likely it is to get mined
+
+2. Send the same transaction nonce with higher gas fee. To *Update* : Send and requires a higher gas fee than previous transaction. To *Cancel* : You should send no data and the  *to* = *from* of the transaction. Sending the same transaction to yourself with the same nonce then you cancel it. Ensure you have access to the private key as well.
+
+**TO UPDATE / DELETE A TRANSACTION**
+
+1. Use MetaMast to either cancel or Speed Up and you will be prompted to cancel.
+
+*UPDATE WITH INFO FROM THE ETHERSCAN*
+
+METAMASK
+
+1. Click the transaction on etherscan, then click *See More*
+
+2. On Metamask, go to your account, then click settings, advanced, then you will see, `customize transaction nonce`, click ON. Then click on Send to yourself and send 0eth & click next. You will then see the custom nonce and click Confirm. If you have other transcations pending with higher nonce get cancelled first else they'll get mined once the first is mined.
+
+
+
+
+
