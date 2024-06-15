@@ -60,7 +60,14 @@ METAMASK
 
 2. On Metamask, go to your account, then click settings, advanced, then you will see, `customize transaction nonce`, click ON. Then click on Send to yourself and send 0eth & click next. You will then see the custom nonce and click Confirm. If you have other transcations pending with higher nonce get cancelled first else they'll get mined once the first is mined.
 
+### Send Ether to a Smart Contract
 
-
+1. payable Modifier : Used to highlight functions meant to receive and hold ether 
+e.g. 
+```solidity
+function updateMessage(string memory _message) public payable{
+    message = _message;
+}
+```
 
 
