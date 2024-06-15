@@ -70,4 +70,5 @@ function updateMessage(string memory _message) public payable{
 }
 ```
 
+**LOW LEVEL TRANSACTIONS : Send 1 single transaction from our account** 
 
