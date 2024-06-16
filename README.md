@@ -72,3 +72,74 @@ function updateMessage(string memory _message) public payable{
 
 **LOW LEVEL TRANSACTIONS : Send 1 single transaction from our account** 
 
+## ETHEREUM BACKGROUND
+
+### SETTER & GETTER FUNCTIONS
+
+1. Writing Transactions - from cache
+
+2. Reading Transactionas are calls
+
+CALLS ARE MADE AGAINST A LOCAL BLOCKCHAIN NODE:
+
+1. Everyone has a copy of the blockchain
+
+2. If you dont need to change anything, you dont need to inform other participants
+
+3. Reading is free
+
+
+### FUNCTIONS
+
+1. View function : Reads from the state and other view functions
+
+2. Pure Functions : Not reading or modifying the state
+
+#### FUNCTION VISIBILITY
+
+1. Public : Can be called internally and externally
+
+2. Private : Only called within the contract and not externally available even from other contracts
+
+3. External : Can only be called from other contracts and called externally.
+
+4. Internal : Only from the contract itself or from derived contracts. Cant be invoked by a transaction.
+
+**CONSTRUCTOR** : A function with the name constructor, it is only called once and this is during the initial deployment. It is either public or internal.
+
+**FALLBACK FUNCTION** 
+
+1. A function with the name `fallback() external [payable]` to receive
+
+2. A function with the name `receive() external payable` to receive a value without calldata
+
+3. Called when a transaction with the wrong function signature is sent to the smart contract
+
+4. Can only be external and the Fallback payable is optional
+
+5. Contracts without a function & a fallback function will throw an error
+
+6. You cant completely avoid receiving Ether, the miner reward or `self destruct(address)` will forcefully credit ether
+
+7. Worst case, you can only rely on 2300gas. hence the send only has 2300gas along. `_contractAddress.transfer(1 ether);` send only 2300
+
+8. Forcefully prevent contract execution if called with contract data. `require(msg.data.length == 0)`
+
+#### MSG.
+
+**Msg.Value**
+
+1. Global msg-object contains a value property (in wei)
+
+2. How much wei was sent during this call affects the value of the contract
+
+**msg.address**
+
+1. Address-type variables have a balance `address X = 0x123...` 
+
+2. address type variable can be a payable `address payable`
+
+3. Payable addresses can receive a value `x.transfer(... wei)`
+
+4. The contract itself can have a balance `address(this).balance`
+
